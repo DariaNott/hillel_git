@@ -4,13 +4,14 @@ import csv
 import password_generator as gen
 
 csv_file = "data.csv"
+header_row = ['title', 'login', 'password']
 
 
 def create_file_if_not_exist():
     if not os.path.isfile(csv_file):
         file_obj = open(csv_file, 'w+', newline='')
         csv_obj = csv.writer(file_obj, lineterminator='\n')
-        csv_obj.writerow(['title', 'login', 'password'])
+        csv_obj.writerow(header_row)
 
 
 def pass_save(title, login, password):
@@ -28,6 +29,9 @@ def pass_save(title, login, password):
             file_obj = open(csv_file, 'w', newline='')
             writer = csv.writer(file_obj, lineterminator='\n')
             rows_keep.append(row_list)
+            # if user will want to save title with title 'title' anf login 'login'
+            if rows_keep[0] != header_row:
+                rows_keep.insert(0, header_row)
             for row in rows_keep:
                 writer.writerow(row)
             print("Password for", title, "with login", login, "updated.")
