@@ -59,13 +59,6 @@ def pass_generate(uppercase, symbols, numbers, duplicates, pass_length):
         if answer.lower() != 'yes':
             print("Please set --pass_length as 8 or more and restart!")
             exit()
-        else:
-            print("""You are to generate password with default values [-uppercase True --symbols False --numbers False
-                     --duplicates False --pass_length 8]\nDo you want to continue? (Yes/No)""")
-            answer = input()
-            if answer.lower() != 'yes':
-                print("Please set desired parameters and restart!")
-                exit()
     if all(v is None for v in [uppercase, symbols, numbers, duplicates, pass_length]):
         print("""You are to generate password with default values [-uppercase True --symbols False --numbers False
          --duplicates False --pass_length 8]\nDo you want to continue? (Yes/No)""")
