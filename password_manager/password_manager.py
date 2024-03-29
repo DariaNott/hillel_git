@@ -110,11 +110,14 @@ def main():
     # arguments for password generator
     parser.add_argument('--uppercase', dest='uppercase', type=bool,
                         help='True if password to have uppercase letters (optional, True by default)')
-    parser.add_argument('--symbols', dest='symbols', type=bool, help='True if password to have symbols (optional, False by default)')
-    parser.add_argument('--numbers', dest='numbers', type=bool, help='True if password to have numbers (optional, False by default)')
+    parser.add_argument('--symbols', dest='symbols', type=bool,
+                        help='True if password to have symbols (optional, False by default)')
+    parser.add_argument('--numbers', dest='numbers', type=bool,
+                        help='True if password to have numbers (optional, False by default)')
     parser.add_argument('--duplicates', dest='duplicates', type=bool,
                         help='True if password to have duplicates (optional, False by default)')
-    parser.add_argument('--pass_length', dest='password_length', type=int, help='Input your password length, 8 and more characters (optional, 8 by default)')
+    parser.add_argument('--pass_length', dest='password_length', type=int,
+                        help='Input your password length, 8 and more characters (optional, 8 by default)')
 
     args = parser.parse_args()
     if all(value is None for value in vars(args).values()):
