@@ -1,11 +1,20 @@
 import argparse
+import os
 import csv
 import password_generator as gen
 
 csv_file = "data.csv"
 
 
+def create_file_if_not_exist():
+    if not os.path.isfile(csv_file):
+        file_obj = open(csv_file, 'w+', newline='')
+        csv_obj = csv.writer(file_obj, lineterminator='\n')
+        csv_obj.writerow(['title', 'login', 'password'])
+
+
 def pass_save(title, login, password):
+    create_file_if_not_exist()
     row_list = [title, login, password]
     pass_exists = check_pass_exist(title, login)
     if pass_exists:
