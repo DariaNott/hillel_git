@@ -52,6 +52,27 @@ def check_pass_exist(title, login):
 
 
 def pass_generate(uppercase, symbols, numbers, duplicates, pass_length):
+    if pass_length is not None and pass_length < 8:
+        print("""Password length is less than 8 characters. 
+            Generator will create password with length 8!\nDo you want to continue? (Yes/No)""")
+        answer = input()
+        if answer.lower() != 'yes':
+            print("Please set --pass_length as 8 or more and restart!")
+            exit()
+        else:
+            print("""You are to generate password with default values [-uppercase True --symbols False --numbers False
+                     --duplicates False --pass_length 8]\nDo you want to continue? (Yes/No)""")
+            answer = input()
+            if answer.lower() != 'yes':
+                print("Please set desired parameters and restart!")
+                exit()
+    if all(v is None for v in [uppercase, symbols, numbers, duplicates, pass_length]):
+        print("""You are to generate password with default values [-uppercase True --symbols False --numbers False
+         --duplicates False --pass_length 8]\nDo you want to continue? (Yes/No)""")
+        answer = input()
+        if answer.lower() != 'yes':
+            print("Please set desired parameters and restart!")
+            exit()
     if uppercase is None:
         uppercase = True
     if symbols is None:
