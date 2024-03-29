@@ -82,8 +82,8 @@ def pass_generate(uppercase, symbols, numbers, duplicates, pass_length):
 
 def get_pass(title):
     results = get_data(title)
-    print("You have saved passwords for ", len(results), title, "accounts:\n")
     if results:
+        print("You have saved passwords for ", len(results), title, "accounts:\n")
         for row in results:
             for x in row:
                 print(x, row[x], sep=': ')
